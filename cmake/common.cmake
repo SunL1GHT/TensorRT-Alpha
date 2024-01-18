@@ -12,10 +12,6 @@ list(APPEND INCLUDE_DRIS ${CUDA_INCLUDE_DIRS})
 # message(FATAL_ERROR "CUDA_npp_LIBRARY: ${CUDA_npp_LIBRARY}")
 
 # gather TensorRT lib
-#set(TensorRT_ROOT ${CMAKE_CURRENT_SOURCE_DIR}/../TensorRT)
-#set(TensorRT_ROOT ${CMAKE_CURRENT_SOURCE_DIR}/../../../../TensorRT-8.2.1.8)
-#set(TensorRT_ROOT /home/feiyull/TensorRT-Plugin)
-#set(TensorRT_ROOT /home/feiyull/TensorRT-8.4.2.4)
 set(TensorRT_ROOT /usr/local/TensorRT-8.6.1.6)
 
 find_library(TRT_NVINFER NAMES nvinfer HINTS ${TensorRT_ROOT} PATH_SUFFIXES lib lib64 lib/x64)
@@ -29,8 +25,6 @@ list(APPEND ALL_LIBS ${TRT_NVINFER} ${TRT_NVINFER_PLUGIN} ${TRT_NVONNX_PARSER} $
 list(APPEND INCLUDE_DRIS ${TENSORRT_INCLUDE_DIR})
 
 # include tensorrt's sample/common headers
-#set(SAMPLES_COMMON_DIR ${CMAKE_CURRENT_SOURCE_DIR}/../common)
-#set(SAMPLES_COMMON_DIR ${CMAKE_CURRENT_SOURCE_DIR}/common)
 set(SAMPLES_COMMON_DIR ${TensorRT_ROOT}/samples/common)
 list(APPEND INCLUDE_DRIS ${SAMPLES_COMMON_DIR})
 message(STATUS ***INCLUDE_DRIS*** = ${INCLUDE_DRIS})
